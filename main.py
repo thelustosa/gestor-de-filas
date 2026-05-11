@@ -300,7 +300,6 @@ async def chamar_senha(req: ChamarRequest):
                 anterior.tempo_atendimento_seg = _calcular_segundos(anterior.horario_chamada, agora)
             # Salvar no histórico de finalizadas
             estado.senhas_finalizadas[anterior.categoria].insert(0, anterior)
-            estado.senhas_finalizadas[anterior.categoria] = estado.senhas_finalizadas[anterior.categoria][:30]
             del estado.senhas_ativas[req.guiche]
 
     # Priorizar Preferenciais
@@ -349,7 +348,6 @@ async def finalizar_senha(req: FinalizarRequest):
         senha.tempo_atendimento_seg = _calcular_segundos(senha.horario_chamada, agora)
         
     estado.senhas_finalizadas[senha.categoria].insert(0, senha)
-    estado.senhas_finalizadas[senha.categoria] = estado.senhas_finalizadas[senha.categoria][:30] # Guarda 30 ultimas
     del estado.senhas_ativas[req.guiche]
     estado.save()
     await ws_manager.broadcast({"tipo": "FILA_ATUALIZADA"})
@@ -367,7 +365,6 @@ async def historico_rechamar_senha(req: HistoricoRechamarRequest):
             if anterior.horario_chamada:
                 anterior.tempo_atendimento_seg = _calcular_segundos(anterior.horario_chamada, agora)
             estado.senhas_finalizadas[anterior.categoria].insert(0, anterior)
-            estado.senhas_finalizadas[anterior.categoria] = estado.senhas_finalizadas[anterior.categoria][:30]
             del estado.senhas_ativas[req.guiche]
 
     # Agora procura no historico e resgata
@@ -453,6 +450,45 @@ async def admin_reset():
     estado.save()
     await ws_manager.broadcast({"tipo": "FILA_ATUALIZADA"})
     return {"status": "ok", "mensagem": "Sistema resetado com sucesso"}
+
+@app.get("/admin/export")
+async def admin_export():
+    """Exporta todas as senhas finalizadas para um arquivo CSV."""
+    import io
+    import csv
+    from fastapi.responses import StreamingResponse
+    
+    output = io.StringIO()
+    writer = csv.writer(output, delimiter=';')
+    
+    # Cabeçalho
+    writer.writerow(["ID", "Categoria", "Tipo", "Guiche", "Horario Emissao", "Horario Chamada", "Horario Finalizacao", "Tempo Espera (seg)", "Tempo Atendimento (seg)", "Observacao"])
+    
+    # Coletar todas as senhas finalizadas
+    for cat, senhas in estado.senhas_finalizadas.items():
+        for s in senhas:
+            writer.writerow([
+                s.id,
+                CATEGORIAS.get(s.categoria, s.categoria),
+                "Preferencial" if s.preferencial else "Normal",
+                s.guiche or "",
+                s.horario_emissao or "",
+                s.horario_chamada or "",
+                s.horario_finalizacao or "",
+                s.tempo_espera_seg or 0,
+                s.tempo_atendimento_seg or 0,
+                s.observacao or ""
+            ])
+            
+    output.seek(0)
+    
+    filename = f"relatorio_senhas_{datetime.now().strftime('%Y%m%d_%H%M%S')}.csv"
+    
+    return StreamingResponse(
+        iter([output.getvalue()]),
+        media_type="text/csv",
+        headers={"Content-Disposition": f"attachment; filename={filename}"}
+    )
 
 if __name__ == "__main__":
     uvicorn.run("main:app", host="0.0.0.0", port=8001, reload=True)
