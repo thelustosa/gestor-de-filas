@@ -1,8 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { API_URL } from '../config';
 
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-  ? 'http://localhost:8001' 
-  : `http://${window.location.hostname}:8001`;
 const SLIDE_DURATION = 20000;
 
 function TVDisplay() {
@@ -60,6 +58,7 @@ function TVDisplay() {
 
   // WebSocket para Senhas e Efeitos Sonoros
   useEffect(() => {
+    let isMounted = true;
     fetchSenhas(); // Busca inicial
     let ws = null;
     let reconnectTimeout = null;
@@ -77,7 +76,7 @@ function TVDisplay() {
         const msg = JSON.parse(event.data);
         
         if (msg.tipo === 'NOVA_SENHA' || msg.tipo === 'FILA_ATUALIZADA') {
-          fetchSenhas(); // Sincroniza a tela
+          if (isMounted) fetchSenhas(); // Sincroniza a tela
         }
 
         if (msg.tipo === 'NOVA_SENHA' && msg.data) {
@@ -109,6 +108,7 @@ function TVDisplay() {
       };
 
       ws.onclose = () => {
+        if (!isMounted) return;
         // Backoff exponencial: 3s → 6s → 12s → max 30s
         reconnectTimeout = setTimeout(connectWS, reconnectDelay);
         reconnectDelay = Math.min(reconnectDelay * 2, 30000);
@@ -116,8 +116,8 @@ function TVDisplay() {
     };
 
     connectWS();
-
     return () => {
+      isMounted = false;
       if (ws) ws.close();
       if (reconnectTimeout) clearTimeout(reconnectTimeout);
     };

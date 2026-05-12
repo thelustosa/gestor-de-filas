@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Ear, Landmark, CarFront, FileText } from 'lucide-react';
+import TicketPrint from './TicketPrint';
+import { API_URL, SETORES } from '../config';
 
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' 
-  ? 'http://localhost:8001' 
-  : `http://${window.location.hostname}:8001`;
+const ICONS = { Ear, Landmark, CarFront, FileText };
 
 function Totem() {
   const [senha, setSenha] = useState(null);
   const [erro, setErro] = useState(null);
   const [categoriaSelecionada, setCategoriaSelecionada] = useState(null);
   const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (senha) {
+      setTimeout(() => { window.print(); }, 100);
+    }
+  }, [senha]);
 
   const retirarSenha = async (tipo) => {
     if (loading) return;
@@ -29,12 +35,9 @@ function Totem() {
         tipoNome: tipo === 'P' ? 'Preferencial' : 'Normal' 
       });
       setErro(null);
-      setCategoriaSelecionada(null); // Reseta a tela
+      setCategoriaSelecionada(null); 
 
-      // Auto close modal
-      setTimeout(() => {
-        setSenha(null);
-      }, 5000);
+      setTimeout(() => { setSenha(null); }, 5000);
 
     } catch (e) {
       setErro('Sistema temporariamente indisponível. Tente novamente.');
@@ -50,23 +53,20 @@ function Totem() {
 
       {!categoriaSelecionada && !senha && !erro && (
         <div className="totem-grid">
-          <button className="btn-totem btn-ouvidoria" onClick={() => setCategoriaSelecionada({ cat: 'O', nome: 'Ouvidoria' })}>
-            <Ear size={80} color="#3b82f6" />
-          Ouvidoria
-        </button>
-        <button className="btn-totem btn-financas" onClick={() => setCategoriaSelecionada({ cat: 'F', nome: 'Finanças' })}>
-          <Landmark size={80} color="#10b981" />
-          Finanças
-        </button>
-        <button className="btn-totem btn-cadastro" onClick={() => setCategoriaSelecionada({ cat: 'C', nome: 'Cadastro de Veículos' })}>
-          <CarFront size={80} color="#f59e0b" />
-          Cadastro de Veículos<br />e Empresas
-        </button>
-        <button className="btn-totem btn-protocolo" onClick={() => setCategoriaSelecionada({ cat: 'P', nome: 'Protocolar Documentos' })}>
-          <FileText size={80} color="#8b5cf6" />
-          Protocolar<br />Documentos
-        </button>
-      </div>
+          {SETORES.map((setor) => {
+            const Icon = ICONS[setor.iconName];
+            return (
+              <button 
+                key={setor.cat}
+                className={`btn-totem btn-${setor.iconName.toLowerCase()}`} 
+                onClick={() => setCategoriaSelecionada({ cat: setor.cat, nome: setor.label })}
+              >
+                <Icon size={80} color={setor.cor} />
+                {setor.label}
+              </button>
+            );
+          })}
+        </div>
       )}
 
       {categoriaSelecionada && !senha && !erro && (
@@ -74,7 +74,7 @@ function Totem() {
           <h2 style={{ textAlign: 'center', fontSize: '2.5rem', marginBottom: '1rem' }}>{categoriaSelecionada.nome}</h2>
           <div style={{ display: 'flex', gap: '2rem' }}>
             <button 
-              className="btn-totem" 
+              className="btn-totem btn-preferencial-totem" 
               style={{ flex: 1, borderColor: '#D4A017', background: 'rgba(212, 160, 23, 0.1)' }} 
               onClick={() => retirarSenha('P')}
               disabled={loading}
@@ -82,7 +82,7 @@ function Totem() {
               {loading ? 'Gerando...' : 'Preferencial'}
             </button>
             <button 
-              className="btn-totem" 
+              className="btn-totem btn-normal-totem" 
               style={{ flex: 1, borderColor: '#94a3b8', background: 'rgba(148, 163, 184, 0.1)' }} 
               onClick={() => retirarSenha('N')}
               disabled={loading}
@@ -91,7 +91,7 @@ function Totem() {
             </button>
           </div>
           <button 
-            style={{ padding: '1rem', background: 'transparent', border: '1px solid #94a3b8', color: '#94a3b8', borderRadius: '1rem', fontSize: '1.2rem', cursor: 'pointer', marginTop: '1rem' }} 
+            className="btn-voltar-totem"
             onClick={() => setCategoriaSelecionada(null)}
           >
             ← Voltar
@@ -123,6 +123,9 @@ function Totem() {
           </div>
         </div>
       )}
+
+      {/* Componente Invisível que só aparece na Impressora Térmica */}
+      <TicketPrint senha={senha} />
     </div>
   );
 }

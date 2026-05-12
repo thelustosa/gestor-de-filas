@@ -267,6 +267,13 @@ body, html, #root {
     align-items: center;
     gap: 1rem;
     box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    transform: translateY(0);
+}
+
+.btn-totem:hover:not(:disabled) {
+    transform: translateY(-8px);
+    background: rgba(255,255,255,0.08);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.05);
 }
 
 .btn-totem:active {
@@ -274,10 +281,35 @@ body, html, #root {
 }
 
 /* Cores por Categoria Totem (usando var(--footer-bg) como base escurecida) */
-.btn-ouvidoria:hover { border-color: #3b82f6; background: rgba(59, 130, 246, 0.15); }
-.btn-financas:hover { border-color: #10b981; background: rgba(16, 185, 129, 0.15); }
-.btn-cadastro:hover { border-color: #f59e0b; background: rgba(245, 158, 11, 0.15); }
-.btn-protocolo:hover { border-color: #8b5cf6; background: rgba(139, 92, 246, 0.15); }
+.btn-ear:hover { border-color: #3b82f6; box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.1); }
+.btn-landmark:hover { border-color: #10b981; box-shadow: 0 0 25px rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1); }
+.btn-carfront:hover { border-color: #f59e0b; box-shadow: 0 0 25px rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1); }
+.btn-filetext:hover { border-color: #8b5cf6; box-shadow: 0 0 25px rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1); }
+
+.btn-normal-totem:hover { border-color: #94a3b8; box-shadow: 0 0 25px rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
+.btn-preferencial-totem:hover { border-color: var(--accent); box-shadow: 0 0 25px rgba(212, 160, 23, 0.4); background: rgba(212, 160, 23, 0.1); }
+
+.btn-voltar-totem {
+    padding: 1.2rem;
+    background: transparent;
+    border: 1px solid rgba(148, 163, 184, 0.3);
+    color: #94a3b8;
+    border-radius: 1rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1.5rem;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 100%;
+}
+
+.btn-voltar-totem:hover {
+    border-color: rgba(255,255,255,0.6);
+    color: white;
+    background: rgba(255,255,255,0.05);
+    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    transform: scale(1.01);
+}
 
 .btn-totem:disabled {
     opacity: 0.5;
@@ -788,6 +820,89 @@ body, html, #root {
     background: #f8fafc;
 }
 
+/* ── BADGES PREFERENCIAIS ── */
+.badge-preferencial-main {
+    font-size: 1rem;
+    background: var(--preferencial);
+    color: white;
+    padding: 0.2rem 0.8rem;
+    border-radius: 2rem;
+    margin-left: 1.5rem;
+    vertical-align: middle;
+    letter-spacing: normal;
+    font-weight: 800;
+    display: inline-block;
+}
+
+.badge-preferencial {
+    margin-left: 0.5rem;
+    font-size: 0.8rem;
+    background: var(--preferencial);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.5rem;
+    vertical-align: middle;
+}
+
+.badge-preferencial-small {
+    margin-left: 0.5rem;
+    font-size: 0.7rem;
+    background: var(--preferencial);
+    color: white;
+    padding: 0.1rem 0.4rem;
+    border-radius: 0.5rem;
+}
+
+/* ── ESTILOS DO HISTÓRICO ── */
+.historico-item {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 1rem 1.25rem !important;
+}
+
+.historico-obs {
+    display: block;
+    margin-top: 0.4rem;
+    color: #d97706 !important;
+}
+
+.atend-historico-acoes {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.8rem;
+    width: 100%;
+}
+
+.btn-historico {
+    flex: 1;
+    padding: 0.45rem;
+    font-size: 0.75rem;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-weight: 700;
+    color: #475569;
+    transition: all 0.2s;
+}
+
+.btn-historico:hover {
+    background: #f1f5f9;
+    border-color: #cbd5e1;
+}
+
+/* ── LOGIN ERROR BOX ── */
+.atend-error-box {
+    background: #fef2f2;
+    border: 1px solid #fee2e2;
+    color: #ef4444;
+    padding: 1rem;
+    border-radius: 0.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
 .atend-fila-pos {
     color: #94a3b8;
     font-size: 0.8rem;
@@ -815,3 +930,136 @@ body, html, #root {
     color: #b45309 !important;
 }
 
+/* ── ESTILOS DE IMPRESSÃO (TICKET TÉRMICO) ── */
+.ticket-print-container {
+    display: none; /* Escondido na tela normal */
+}
+
+@media print {
+    /* Resetar fundo geral da página para não imprimir cores indesejadas */
+    body, html, #root, .totem-layout {
+        background: transparent !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        width: 100% !important;
+        height: auto !important;
+        min-height: auto !important;
+    }
+
+    /* Esconder todos os filhos do Totem EXCETO o container do ticket */
+    .totem-layout > *:not(.ticket-print-container) {
+        display: none !important;
+    }
+
+    /* Mostrar apenas o container do ticket */
+    .ticket-print-container {
+        display: flex !important;
+        flex-direction: column;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 72mm; /* Largura padrão de impressoras de 80mm com margem interna */
+        margin: 0 auto;
+        padding: 4mm;
+        color: #000;
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        text-align: center;
+        background: #fff;
+    }
+
+    /* Ajuste de página para impressora térmica */
+    @page {
+        margin: 0; 
+        padding: 0;
+        size: 80mm auto; /* Força o tamanho do papel no navegador */
+    }
+
+    /* CABEÇALHO */
+    .ticket-logo {
+        max-width: 40mm; /* Tamanho fixo e nítido */
+        margin: 0 auto 10px;
+        display: block;
+        filter: grayscale(100%) contrast(1.5);
+    }
+
+    .ticket-agency-name {
+        font-size: 15px;
+        font-weight: 800;
+        margin: 0 0 2px 0;
+        line-height: 1.1;
+    }
+
+    .ticket-agency-sub {
+        font-size: 11px;
+        font-weight: 500;
+        margin: 0 0 15px 0;
+        letter-spacing: 0.5px;
+    }
+
+    /* DIVISOR */
+    .ticket-divider {
+        width: 100%;
+        border-top: 2px solid #000;
+        margin: 10px 0;
+    }
+
+    /* CORPO */
+    .ticket-greeting {
+        font-size: 12px;
+        font-weight: bold;
+        margin: 15px 0 5px;
+    }
+
+    .ticket-cat {
+        font-size: 18px;
+        font-weight: 800;
+        text-transform: uppercase;
+        margin: 0 0 15px 0;
+        letter-spacing: 1px;
+    }
+
+    .ticket-number-box {
+        border: 3px solid #000;
+        padding: 10px;
+        margin: 0 auto 15px;
+        width: 90%;
+        border-radius: 8px;
+    }
+
+    .ticket-number {
+        font-size: 55px; /* Gigante e legível */
+        font-weight: 900;
+        margin: 0;
+        line-height: 1;
+        font-family: 'Arial Black', Impact, sans-serif; /* Fontes ultrabold */
+    }
+
+    .ticket-tipo {
+        font-size: 14px;
+        font-weight: 800;
+        margin: 5px 0 15px 0;
+        letter-spacing: 1px;
+        border-radius: 4px;
+    }
+
+    /* RODAPÉ */
+    .ticket-footer {
+        margin-top: 5px;
+    }
+
+    .ticket-datetime {
+        display: flex;
+        justify-content: space-between;
+        font-size: 12px;
+        font-weight: 600;
+        margin: 0 5px 15px 5px;
+    }
+
+    .ticket-wait {
+        font-size: 13px;
+        font-weight: bold;
+        margin: 0;
+        padding-top: 5px;
+        border-top: 1px solid #000;
+    }
+}

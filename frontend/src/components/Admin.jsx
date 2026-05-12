@@ -1,15 +1,32 @@
-import React, { useState } from 'react';
-import { RefreshCcw, Download, AlertTriangle, CheckCircle, Clock, ShieldCheck, LogOut, FileSpreadsheet } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { RefreshCcw, Download, AlertTriangle, CheckCircle, Clock, ShieldCheck, LogOut, FileSpreadsheet, Monitor, UserCheck, UserX } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
-
-const API_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
-  ? 'http://localhost:8001'
-  : `http://${window.location.hostname}:8001`;
+import { API_URL } from '../config';
 
 const Admin = () => {
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState(null);
+  const [stats, setStats] = useState(null);
   const navigate = useNavigate();
+
+  const fetchStats = async (isMounted = true) => {
+    try {
+      const res = await fetch(`${API_URL}/admin/stats?_t=${Date.now()}`, { cache: 'no-store' });
+      const data = await res.json();
+      if (isMounted) setStats(data);
+    } catch (e) { console.error(e); }
+  };
+
+  useEffect(() => {
+    let isMounted = true;
+    fetchStats(isMounted);
+    const timer = setInterval(() => fetchStats(isMounted), 5000);
+    
+    return () => {
+      isMounted = false;
+      clearInterval(timer);
+    };
+  }, []);
 
   const exibirMsg = (texto, tipo = 'ok') => {
     setMsg({ texto, tipo });
@@ -121,7 +138,71 @@ const Admin = () => {
                 Exportar Planilha (CSV)
               </button>
             </div>
+          </div>
 
+          {/* Monitoramento de Guichês */}
+          <div className="atend-card-obs" style={{ padding: '2rem', marginTop: '1.5rem' }}>
+            <div className="atend-card-obs-header" style={{ justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                <Monitor size={18} /> Monitoramento de Guichês em Tempo Real
+              </div>
+              <button 
+                onClick={async () => {
+                  if(window.confirm('Deseja limpar todos os guichês do monitoramento? (Isso removerá atendimentos "fantasm" mas não zera as senhas)')) {
+                    await fetch(`${API_URL}/admin/reset-guiches`, { method: 'POST' });
+                    fetchStats();
+                  }
+                }}
+                style={{ fontSize: '0.75rem', padding: '0.3rem 0.6rem', background: '#f8fafc', border: '1px solid #e2e8f0', borderRadius: '0.4rem', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '0.3rem' }}
+              >
+                <RefreshCcw size={12} /> Limpar Monitoramento
+              </button>
+            </div>
+            
+            {!stats ? (
+              <p style={{ textAlign: 'center', padding: '1rem', color: '#94a3b8' }}>Carregando estatísticas...</p>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1.5rem' }}>
+                {Object.entries(stats).map(([catId, cat]) => (
+                  <div key={catId} style={{ border: '1px solid #e2e8f0', borderRadius: '1rem', overflow: 'hidden' }}>
+                    <div style={{ background: '#f8fafc', padding: '0.8rem 1.2rem', borderBottom: '1px solid #e2e8f0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                      <strong style={{ color: '#1e293b' }}>{cat.nome}</strong>
+                      <span style={{ fontSize: '0.85rem', color: '#64748b' }}>{cat.ativos} ativos / {cat.total} total</span>
+                    </div>
+                    
+                    <div style={{ padding: '1rem', display: 'flex', flexWrap: 'wrap', gap: '0.8rem' }}>
+                      {cat.lista.length === 0 ? (
+                        <span style={{ fontSize: '0.85rem', color: '#94a3b8', fontStyle: 'italic' }}>Nenhum guichê registrado hoje.</span>
+                      ) : (
+                        cat.lista.map(g => (
+                          <div 
+                            key={g.id} 
+                            style={{ 
+                              padding: '0.6rem 1rem', 
+                              borderRadius: '0.8rem', 
+                              background: g.online ? '#f0fdf4' : '#f8fafc',
+                              border: `1px solid ${g.online ? '#bbf7d0' : '#e2e8f0'}`,
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '0.6rem',
+                              minWidth: '140px'
+                            }}
+                          >
+                            {g.online ? <UserCheck size={16} color="#16a34a" /> : <UserX size={16} color="#94a3b8" />}
+                            <div style={{ display: 'flex', flexDirection: 'column' }}>
+                              <span style={{ fontWeight: 'bold', fontSize: '0.9rem', color: g.online ? '#166534' : '#475569' }}>Guichê {g.id}</span>
+                              <span style={{ fontSize: '0.7rem', color: g.ocupado ? '#d97706' : '#94a3b8' }}>
+                                {g.ocupado ? `Atendendo: ${g.senha_atual}` : (g.online ? 'Livre' : 'Desconectado')}
+                              </span>
+                            </div>
+                          </div>
+                        ))
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            )}
           </div>
 
           {/* Rodapé de Informação */}
