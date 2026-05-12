@@ -1,20 +1,20 @@
-# AGR - Sistema de Atendimento Inteligente 🚀
+# AGR - Sistema de Atendimento Inteligente
 
 Este é o sistema oficial de gerenciamento de filas e notícias da **AGR (Agência Goiana de Regulação)**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
 
 ---
 
-## 🌟 Funcionalidades Principais
+## Funcionalidades Principais
 
-*   **📺 Painel de TV (Display):** Transmissão de notícias em tempo real via RSS, exibição de senhas chamadas e avisos sonoros/voz sintetizada.
-*   **🏢 Totem de Autoatendimento:** Interface intuitiva para emissão de senhas (Normal e Preferencial) dividida por categorias (Ouvidoria, Finanças, Veículos, etc.).
-*   **👨‍💻 Painel do Atendente:** Controle completo de chamadas, rechamadas, finalização de atendimentos com observações e histórico individual.
-*   **📊 Dashboard Administrativo:** Monitoramento em tempo real de guichês ativos, estatísticas de ocupação e exportação de relatórios detalhados em CSV (Excel).
-*   **⚡ Real-time:** Comunicação instantânea via WebSockets para chamadas de senhas sem atrasos.
+*   **Painel de TV (Display):** Transmissão de notícias em tempo real via RSS, exibição de senhas chamadas e avisos sonoros/voz sintetizada.
+*   **Totem de Autoatendimento:** Interface intuitiva para emissão de senhas (Normal e Preferencial) dividida por categorias (Ouvidoria, Finanças, Veículos, etc.).
+*   **Painel do Atendente:** Controle completo de chamadas, rechamadas, finalização de atendimentos com observações e histórico individual.
+*   **Dashboard Administrativo:** Monitoramento em tempo real de guichês ativos, estatísticas de ocupação e exportação de relatórios detalhados em CSV (Excel).
+*   **Real-time:** Comunicação instantânea via WebSockets para chamadas de senhas sem atrasos.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 ### **Backend**
 - **Python + FastAPI:** Alta performance e documentação automática.
@@ -29,7 +29,7 @@ Este é o sistema oficial de gerenciamento de filas e notícias da **AGR (Agênc
 
 ---
 
-## 🚀 Como Rodar o Projeto
+## Como Rodar o Projeto
 
 ### **1. Backend (API)**
 Certifique-se de ter o Python 3.10+ instalado.
@@ -41,7 +41,7 @@ pip install fastapi uvicorn beautifulsoup4 requests
 # Inicie o servidor
 python backend/main.py
 ```
-*A API ficará disponível em `http://localhost:8000`*
+*A API ficará disponível em http://localhost:8000*
 
 ### **2. Frontend (Interface)**
 Certifique-se de ter o Node.js instalado.
@@ -56,11 +56,11 @@ npm install
 # Inicie o modo de desenvolvimento
 npm run dev
 ```
-*O sistema abrirá em `http://localhost:5173`*
+*O sistema abrirá em http://localhost:5173*
 
 ---
 
-## 📂 Estrutura do Projeto
+## Estrutura do Projeto
 
 ```text
 ├── backend/
@@ -78,7 +78,7 @@ npm run dev
 
 ---
 
-## 📊 Relatórios e Dados
+## Relatórios e Dados
 Os dados de atendimento são salvos permanentemente em `backend/data/atendimentos.db`. Você pode exportar o histórico completo para Excel através do botão **Exportar Planilha** no Painel Administrativo.
 
 ---
