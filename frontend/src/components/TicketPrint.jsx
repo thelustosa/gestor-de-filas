@@ -11,9 +11,9 @@ const TicketPrint = ({ senha }) => {
     <div className="ticket-print-container">
       <div className="ticket-header">
         {/* Usamos a logo com tamanho e posição definidos profissionalmente */}
-        <img src="/logo/logo.png" alt="Logomarca AGR" className="ticket-logo" />
-        <h2 className="ticket-agency-name">AGÊNCIA GOIANA DE REGULAÇÃO</h2>
-        <p className="ticket-agency-sub">CONTROLE E FISCALIZAÇÃO</p>
+        <img src="/logo/goias.png" alt="Logomarca Estado de Goiás" className="ticket-logo" />
+        <h2 className="ticket-agency-name">ESTADO DE GOIÁS</h2>
+        <p className="ticket-agency-sub">ATENDIMENTO AO CIDADÃO</p>
       </div>
       
       <div className="ticket-divider"></div>

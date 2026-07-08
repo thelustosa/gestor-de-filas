@@ -207,7 +207,7 @@ const Admin = () => {
 
           {/* Rodapé de Informação */}
           <div style={{ textAlign: 'center', marginTop: '2rem', color: '#94a3b8', fontSize: '0.8rem' }}>
-            AGR - Agência Goiana de Regulação | Sistema de Atendimento v2.0
+            Estado de Goiás | Sistema de Atendimento v2.0
           </div>
 
         </div>

@@ -1,5 +1,5 @@
 @echo off
-title AGR - Inicializador do Sistema
+title Estado de Goiás - Inicializador do Sistema
 
 REM Desativa cores ANSI caso o terminal legado nao as suporte, evitando textos quebrados (como [32m)
 set NO_COLOR=1
@@ -7,7 +7,7 @@ set NODE_DISABLE_COLORS=1
 
 color 0A
 echo ===================================================
-echo     AGR - Sistema de Atendimento Inteligente
+echo     Estado de Goiás - Sistema de Atendimento Inteligente
 echo ===================================================
 echo.
 
@@ -81,7 +81,7 @@ echo.
 REM Inicia o backend em uma nova janela visível.
 REM O parametro /k mantem a janela aberta se o processo encerrar (bom para ver erros).
 echo [*] Iniciando o Backend Python em uma nova janela...
-start "AGR - Backend (Python)" cmd /k "cd backend && python main.py"
+start "Estado de Goiás - Backend (Python)" cmd /k "cd backend && python main.py"
 
 REM Inicia o frontend na janela de terminal atual.
 echo [*] Iniciando o Frontend React na janela atual...

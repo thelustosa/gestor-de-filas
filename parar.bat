@@ -1,12 +1,12 @@
 @echo off
-title AGR - Parar Servidores
+title Estado de Goiás - Parar Servidores
 color 0C
 
 REM Habilita suporte a UTF-8 no terminal
 chcp 65001 >nul 2>&1
 
 echo ===================================================
-echo     AGR - Parando Servidores (Backend e Frontend)
+echo     Estado de Goiás - Parando Servidores (Backend e Frontend)
 echo ===================================================
 echo.
 
