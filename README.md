@@ -20,7 +20,7 @@ Este é o sistema oficial de gerenciamento de filas e notícias da **AGR (Agênc
 - **Python + FastAPI:** Alta performance e documentação automática.
 - **SQLite:** Banco de dados leve e eficiente para histórico de atendimentos.
 - **WebSockets:** Comunicação bidirecional para eventos em tempo real.
-- **BeautifulSoup4:** Web scraping inteligente para as últimas notícias da AGR.
+- **BeautifulSoup4 + HTTPX:** Web scraping assíncrono para as últimas notícias da AGR.
 
 ### **Frontend**
 - **React.js + Vite:** Interface moderna, rápida e responsiva.
@@ -31,19 +31,36 @@ Este é o sistema oficial de gerenciamento de filas e notícias da **AGR (Agênc
 
 ## Como Rodar o Projeto
 
-### **1. Backend (API)**
+### **Inicialização Simplificada (Recomendado para Windows)**
+
+O projeto conta com um script automatizado que verifica os requisitos, instala as dependências necessárias e inicializa tanto o backend quanto o frontend em janelas de terminal visíveis para fácil monitoramento e depuração.
+
+Para rodar o sistema:
+
+1. Instale o **Python 3.10+** (certifique-se de marcar a opção **"Add Python to PATH"** durante a instalação).
+2. Instale o **Node.js** (versão LTS recomendada).
+3. Dê dois cliques no arquivo **`iniciar.bat`** na raiz do projeto. Ele cuidará do restante automaticamente!
+4. Para encerrar o sistema, basta fechar as duas janelas de terminal abertas ou dar dois cliques no arquivo **`parar.bat`** (que encerrará de forma limpa os processos nas portas correspondentes).
+
+---
+
+### **Configuração Manual (Passo a Passo)**
+
+Caso prefira fazer a instalação manualmente via terminal:
+
+#### **1. Backend (API)**
 Certifique-se de ter o Python 3.10+ instalado.
 
 ```bash
-# Entre na pasta do backend (se necessário) e instale as dependências
-pip install fastapi uvicorn beautifulsoup4 requests
+# Instale as dependências
+pip install fastapi uvicorn beautifulsoup4 httpx
 
 # Inicie o servidor
 python backend/main.py
 ```
-*A API ficará disponível em http://localhost:8000*
+*A API ficará disponível em http://localhost:8001*
 
-### **2. Frontend (Interface)**
+#### **2. Frontend (Interface)**
 Certifique-se de ter o Node.js instalado.
 
 ```bash
@@ -58,22 +75,29 @@ npm run dev
 ```
 *O sistema abrirá em http://localhost:5173*
 
+
 ---
 
 ## Estrutura do Projeto
 
 ```text
 ├── backend/
-│   ├── data/          # Banco de Dados e estado persistente
-│   ├── routes/        # Lógica das rotas (Fila, Admin, Notícias)
-│   ├── config.py      # Configurações globais do servidor
-│   └── main.py        # Ponto de entrada da API
+│   ├── data/          # Banco de Dados SQLite (atendimentos.db)
+│   ├── routes/        # Rotas da API (admin, news, queue)
+│   ├── config.py      # Configurações do servidor
+│   ├── database.py    # Conexão e setup do banco
+│   ├── models.py      # Esquemas de dados (Pydantic/SQL)
+│   ├── news_service.py# Lógica de extração de notícias
+│   ├── websocket.py   # Gerenciamento de conexões em tempo real
+│   └── main.py        # Ponto de entrada (Uvicorn)
 ├── frontend/
 │   ├── src/
-│   │   ├── components/# Componentes React (Totem, Admin, TV, etc.)
-│   │   ├── config.js  # Configuração de URLs da API
-│   │   └── App.jsx    # Roteamento principal
-└── README.md
+│   │   ├── components/# Componentes React
+│   │   ├── config.js  # Configuração de URLs e Setores
+│   │   ├── App.jsx    # Roteamento principal
+│   │   └── main.jsx   # Inicialização do React
+├── iniciar.bat
+└── parar.bat
 ```
 
 ---
