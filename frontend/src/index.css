@@ -1063,3 +1063,12 @@ body, html, #root {
         border-top: 1px solid #000;
     }
 }
+
+.tv-logo-top-left {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    width: 125px;
+    z-index: 20;
+    filter: drop-shadow(0px 2px 5px rgba(0,0,0,0.5));
+}

@@ -151,7 +151,7 @@ function TVDisplay() {
     return (
       <div id="loader">
         <div className="spinner"></div>
-        <p style={{ color: 'white' }}>Iniciando AGR News TV...</p>
+        <p style={{ color: 'white' }}>Iniciando Goiás News TV...</p>
       </div>
     );
   }
@@ -172,6 +172,7 @@ function TVDisplay() {
       <div className="top-section">
         {/* Main News */}
         <main className="main-content">
+          <img src="/logo/goias.png" alt="Governo de Goiás" className="tv-logo-top-left" />
           
           {currentNewsItem && (
             <>

@@ -1,6 +1,6 @@
-# AGR - Sistema de Atendimento Inteligente
+# Sistema de Atendimento Inteligente
 
-Este é o sistema oficial de gerenciamento de filas e notícias da **AGR (Agência Goiana de Regulação)**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
+Este é o sistema oficial de gerenciamento de filas e notícias do **Estado de Goiás**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
 
 ---
 
@@ -20,7 +20,7 @@ Este é o sistema oficial de gerenciamento de filas e notícias da **AGR (Agênc
 - **Python + FastAPI:** Alta performance e documentação automática.
 - **SQLite:** Banco de dados leve e eficiente para histórico de atendimentos.
 - **WebSockets:** Comunicação bidirecional para eventos em tempo real.
-- **BeautifulSoup4 + HTTPX:** Web scraping assíncrono para as últimas notícias da AGR.
+- **BeautifulSoup4 + HTTPX:** Web scraping assíncrono para as últimas notícias do Governo do Estado de Goiás.
 
 ### **Frontend**
 - **React.js + Vite:** Interface moderna, rápida e responsiva.
@@ -107,7 +107,7 @@ Os dados de atendimento são salvos permanentemente em `backend/data/atendimento
 
 ---
 
-**Desenvolvido para a Agência Goiana de Regulação por:**
+**Desenvolvido para o Estado de Goiás por:**
 - **Lucas Lustosa Coelho**
 - **Leonardo Ferreira Amichi**
 

@@ -3,7 +3,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from websocket import ws_manager
 from routes import news, queue, admin
 
-app = FastAPI(title="API de Notícias AGR")
+app = FastAPI(title="API de Notícias - Estado de Goiás")
 
 app.add_middleware(
     CORSMiddleware,
