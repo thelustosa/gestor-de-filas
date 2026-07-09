@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="docs/images/tv_painel.png" alt="Painel de TV - Estado de Goiás" width="800" />
+</p>
+
 # Sistema de Atendimento Inteligente
 
 Este é o sistema oficial de gerenciamento de filas e notícias do **Estado de Goiás**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
@@ -80,25 +84,21 @@ npm run dev
 
 ## Demonstração do Fluxo do Sistema
 
-### **1. Painel do Atendente (Login e Seleção)**
-O atendente seleciona o setor de atendimento e informa o número do guichê ou mesa onde se localiza.
-![Seleção de Setor pelo Atendente](docs/images/print1_atendente_setor.png)
+### **Fluxo do Totem de Autoatendimento**
+Interface utilizada para a triagem e retirada de senhas (pelo próprio cidadão ou por um atendente local).
 
-### **2. Painel do Atendente (Controle de Senhas)**
-Interface completa do atendente para chamar a próxima senha, rechamar senhas passadas, finalizar o atendimento com observações e gerenciar a fila.
-![Painel de Controle do Atendente](docs/images/print2_atendente_painel.png)
+| 1. Seleção do Setor | 2. Tipo de Atendimento (Normal/Pref) | 3. Visualização e Impressão do Ticket |
+| :---: | :---: | :---: |
+| ![Totem - Seleção do Setor](docs/images/print3_totem_setores.png) | ![Totem - Tipo de Atendimento](docs/images/print4_totem_tipo.png) | ![Impressão do Ticket](docs/images/print5_impressao_senha.png) |
 
-### **3. Totem de Autoatendimento (Categorias)**
-Tela de escolha onde o cidadão (ou atendente de triagem) escolhe o setor do serviço desejado.
-![Totem de Autoatendimento](docs/images/print3_totem_setores.png)
+---
 
-### **4. Totem de Autoatendimento (Tipo de Atendimento)**
-Escolha entre o atendimento **Normal** ou **Preferencial**.
-![Seleção de Tipo de Atendimento](docs/images/print4_totem_tipo.png)
+### **Fluxo do Painel do Atendente**
+Interface onde os atendentes realizam login vinculando ao guichê e gerenciam as chamadas.
 
-### **5. Impressão de Senha**
-Ao selecionar o tipo de atendimento, o sistema gera e abre o diálogo de impressão do ticket com a senha térmica.
-![Impressão do Ticket de Senha](docs/images/print5_impressao_senha.png)
+| 1. Seleção do Setor e Guichê | 2. Controle de Fila e Chamadas (Chamar/Rechamar) |
+| :---: | :---: |
+| ![Atendente - Login](docs/images/print1_atendente_setor.png) | ![Atendente - Painel](docs/images/print2_atendente_painel.png) |
 
 ---
 
