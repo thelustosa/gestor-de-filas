@@ -90,6 +90,19 @@ npm run dev
 *O sistema abrirá em http://localhost:5173*
 
 
+## Integração de Autenticação LDAP (Recomendado)
+
+Para implantação em ambientes corporativos ou governamentais, recomenda-se a integração de login através de um servidor **LDAP (Lightweight Directory Access Protocol)** ou **Active Directory (AD)**.
+
+### Benefícios:
+*   **Single Sign-On (SSO):** Permite que atendentes e administradores utilizem as mesmas credenciais de rede corporativas já existentes.
+*   **Gestão Centralizada:** Facilita o controle de acessos, controle de permissões e revogação de credenciais diretamente pelo setor de TI.
+*   **Conformidade de Segurança:** Alinhamento com as políticas de segurança de informação do órgão público ou empresa.
+
+### Sugestão de Implementação:
+1.  **Backend (FastAPI):** Integração com bibliotecas como `ldap3` ou `python-ldap` para autenticar as credenciais no servidor LDAP e, após o sucesso, emitir um token JWT para as sessões do painel de atendente e administrativo.
+2.  **Frontend (React):** Adaptação do formulário de login para receber usuário e senha do domínio, transmitindo-os de forma segura (HTTPS) para o endpoint de validação.
+
 ---
 
 ## Demonstração do Fluxo do Sistema
