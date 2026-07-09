@@ -137,7 +137,11 @@ Interface onde os atendentes realizam login vinculando ao guichê e gerenciam as
 ---
 
 ## Relatórios e Dados
-Os dados de atendimento são salvos permanentemente em `backend/data/atendimentos.db`. Você pode exportar o histórico completo para Excel através do botão **Exportar Planilha** no Painel Administrativo.
+Os dados de atendimento são salvos permanentemente em `backend/data/atendimentos.db`. Você pode exportar o histórico completo para Excel através do botão **Exportar Planilha** no Painel Administrativo, além de monitorar guichês ativos em tempo real e extrair dados de produtividade para Ouvidoria, Finanças e outros setores.
+
+<p align="center">
+  <img src="docs/images/print6_admin.png" alt="Painel Administrativo - Relatórios e Monitoramento" width="800" />
+</p>
 
 ---
 
