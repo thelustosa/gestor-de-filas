@@ -7,7 +7,7 @@ router = APIRouter()
 
 @router.get("/noticias")
 async def listar_noticias():
-    """Retorna notícias da AGR com cache para não banir o IP."""
+    """Retorna notícias do Google News com cache."""
     agora = datetime.now()
     if NEWS_CACHE["data"] and NEWS_CACHE["last_update"]:
         if agora - NEWS_CACHE["last_update"] < CACHE_TTL:

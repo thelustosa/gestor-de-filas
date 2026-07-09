@@ -1,12 +1,12 @@
 @echo off
-title Estado de Goiás - Parar Servidores
+title Sistema de Filas - Parar Servidores
 color 0C
 
 REM Habilita suporte a UTF-8 no terminal
 chcp 65001 >nul 2>&1
 
 echo ===================================================
-echo     Estado de Goiás - Parando Servidores (Backend e Frontend)
+echo     Sistema de Filas - Parando Servidores (Backend e Frontend)
 echo ===================================================
 echo.
 

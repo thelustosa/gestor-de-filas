@@ -1,11 +1,11 @@
 <p align="center">
-  <img src="docs/images/tv_painel_v2.png" alt="Gestor de Filas de Atendimento - Estado de Goiás" width="800" />
+  <img src="docs/images/tv_painel_v3.png" alt="Gestor de Filas de Atendimento" width="800" />
 </p>
 
 <h1 align="center">Gestor de Filas de Atendimento</h1>
 
 <p align="center">
-  Sistema completo de gerenciamento de filas e notícias para o <strong>Estado de Goiás</strong>. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
+  Sistema completo de gerenciamento de filas e notícias. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
 </p>
 
 <p align="center">
@@ -34,7 +34,7 @@
 - **Python + FastAPI:** Alta performance e documentação automática.
 - **SQLite:** Banco de dados leve e eficiente para histórico de atendimentos.
 - **WebSockets:** Comunicação bidirecional para eventos em tempo real.
-- **BeautifulSoup4 + HTTPX:** Web scraping assíncrono para as últimas notícias do Governo do Estado de Goiás.
+- **BeautifulSoup4 + HTTPX:** Web scraping assíncrono para as últimas notícias.
 
 ### **Frontend**
 - **React.js + Vite:** Interface moderna, rápida e responsiva.
@@ -158,7 +158,7 @@ Os dados de atendimento são salvos permanentemente em `backend/data/atendimento
 
 ---
 
-**Desenvolvido para o Estado de Goiás por:**
+**Desenvolvido por:**
 - **Lucas Lustosa Coelho**
 - **Leonardo Ferreira Amichi**
 
