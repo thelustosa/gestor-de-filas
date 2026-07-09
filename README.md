@@ -5,7 +5,7 @@
 <h1 align="center">Gestor de Filas de Atendimento</h1>
 
 <p align="center">
-  Sistema completo de gerenciamento de filas e notícias do <strong>Estado de Goiás</strong>. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
+  Sistema completo de gerenciamento de filas e notícias para o <strong>Estado de Goiás</strong>. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
 </p>
 
 <p align="center">
