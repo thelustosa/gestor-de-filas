@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/tv_painel.png" alt="Gestor de Filas de Atendimento - Estado de Goiás" width="800" />
+  <img src="docs/images/tv_painel_v2.png" alt="Gestor de Filas de Atendimento - Estado de Goiás" width="800" />
 </p>
 
 <h1 align="center">Gestor de Filas de Atendimento</h1>
