@@ -4,7 +4,7 @@
 
 # Sistema de Atendimento Inteligente
 
-Este é o sistema oficial de gerenciamento de filas e notícias do **Estado de Goiás**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
+Este é o sistema de gerenciamento de filas e notícias do **Estado de Goiás**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
 
 ---
 
