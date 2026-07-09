@@ -78,6 +78,30 @@ npm run dev
 
 ---
 
+## Demonstração do Fluxo do Sistema
+
+### **1. Painel do Atendente (Login e Seleção)**
+O atendente seleciona o setor de atendimento e informa o número do guichê ou mesa onde se localiza.
+![Seleção de Setor pelo Atendente](docs/images/print1_atendente_setor.png)
+
+### **2. Painel do Atendente (Controle de Senhas)**
+Interface completa do atendente para chamar a próxima senha, rechamar senhas passadas, finalizar o atendimento com observações e gerenciar a fila.
+![Painel de Controle do Atendente](docs/images/print2_atendente_painel.png)
+
+### **3. Totem de Autoatendimento (Categorias)**
+Tela de escolha onde o cidadão (ou atendente de triagem) escolhe o setor do serviço desejado.
+![Totem de Autoatendimento](docs/images/print3_totem_setores.png)
+
+### **4. Totem de Autoatendimento (Tipo de Atendimento)**
+Escolha entre o atendimento **Normal** ou **Preferencial**.
+![Seleção de Tipo de Atendimento](docs/images/print4_totem_tipo.png)
+
+### **5. Impressão de Senha**
+Ao selecionar o tipo de atendimento, o sistema gera e abre o diálogo de impressão do ticket com a senha térmica.
+![Impressão do Ticket de Senha](docs/images/print5_impressao_senha.png)
+
+---
+
 ## Estrutura do Projeto
 
 ```text
