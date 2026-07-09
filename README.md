@@ -1,10 +1,20 @@
 <p align="center">
-  <img src="docs/images/tv_painel.png" alt="Painel de TV - Estado de Goiás" width="800" />
+  <img src="docs/images/tv_painel.png" alt="Gestor de Filas de Atendimento - Estado de Goiás" width="800" />
 </p>
 
-# Sistema de Atendimento Inteligente
+<h1 align="center">Gestor de Filas de Atendimento</h1>
 
-Este é o sistema de gerenciamento de filas e notícias do **Estado de Goiás**. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
+<p align="center">
+  Sistema completo de gerenciamento de filas e notícias do <strong>Estado de Goiás</strong>. Uma solução moderna, robusta e em tempo real para otimizar o atendimento ao cidadão.
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/badge/React-18-61DAFB?style=flat-square&logo=react&logoColor=black" alt="React 18" />
+  <img src="https://img.shields.io/badge/Vite-5-646CFF?style=flat-square&logo=vite&logoColor=white" alt="Vite 5" />
+  <img src="https://img.shields.io/badge/Python-FastAPI-009688?style=flat-square&logo=fastapi&logoColor=white" alt="FastAPI" />
+  <img src="https://img.shields.io/badge/Database-SQLite-003B57?style=flat-square&logo=sqlite&logoColor=white" alt="SQLite" />
+  <img src="https://img.shields.io/badge/Realtime-WebSockets-FF9800?style=flat-square" alt="WebSockets" />
+</p>
 
 ---
 
