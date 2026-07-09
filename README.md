@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="docs/images/tv_painel_v3.png" alt="Gestor de Filas de Atendimento" width="800" />
+  <img src="docs/images/tv_painel_vx.png" alt="Gestor de Filas de Atendimento" width="800" />
 </p>
 
 <h1 align="center">Gestor de Filas de Atendimento</h1>
@@ -159,7 +159,7 @@ Os dados de atendimento são salvos permanentemente em `backend/data/atendimento
 ---
 
 **Desenvolvido por:**
-x- **Lucas Lustosa Coelho**
+- **Lucas Lustosa Coelho**
 - **Leonardo Ferreira Amichi**
 
 *"Inovação e Eficiência no Atendimento Público"*
