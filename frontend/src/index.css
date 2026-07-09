@@ -1,13 +1,13 @@
 :root {
-    --primary: #1B8A3D;
+    --primary: #D4A017;
     --accent: #D4A017;
-    --bg-dark: #142C4A;
-    --sidebar-bg: #1E3A5F;
-    --footer-bg: #2B5078;
+    --bg-dark: #0f172a;
+    --sidebar-bg: #1e293b;
+    --footer-bg: #0f172a;
     --text-main: #ffffff;
     --text-muted: #94a3b8;
     --live-red: #ef4444;
-    --preferencial: #D4A017;
+    --preferencial: #facc15;
 }
 
 * {
