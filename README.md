@@ -159,7 +159,7 @@ Os dados de atendimento são salvos permanentemente em `backend/data/atendimento
 ---
 
 **Desenvolvido por:**
-- **Lucas Lustosa Coelho**
+x- **Lucas Lustosa Coelho**
 - **Leonardo Ferreira Amichi**
 
 *"Inovação e Eficiência no Atendimento Público"*
