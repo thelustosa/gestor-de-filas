@@ -87,7 +87,12 @@ npm install
 # Inicie o modo de desenvolvimento
 npm run dev
 ```
-*O sistema abrirá em http://localhost:5173*
+*O sistema abrirá em [http://localhost:5173](http://localhost:5173). As seguintes rotas estão disponíveis:*
+
+*   **Painel da TV (Display):** [http://localhost:5173/tv](http://localhost:5173/tv)
+*   **Totem de Autoatendimento:** [http://localhost:5173/totem](http://localhost:5173/totem)
+*   **Painel do Atendente:** [http://localhost:5173/atendente](http://localhost:5173/atendente)
+*   **Dashboard Administrativo:** [http://localhost:5173/admin](http://localhost:5173/admin)
 
 
 ## Integração de Autenticação LDAP (Recomendado)
