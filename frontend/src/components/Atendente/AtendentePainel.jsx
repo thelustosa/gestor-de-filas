@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
-import { Ear, Landmark, CarFront, FileText, LogOut, BellRing, CheckCircle, RefreshCw, MessageSquare, Clock } from 'lucide-react';
+import { Activity, Stethoscope, TestTubes, FileText, LogOut, BellRing, CheckCircle, RefreshCw, MessageSquare, Clock } from 'lucide-react';
 import { API_URL, CLIENT_ID, SETORES } from '../../config';
 import { formatarTempo, formatarHora } from '../../utils/formatters';
 import QueueSidebar from './QueueSidebar';
 
-const ICONS = { Ear, Landmark, CarFront, FileText };
+const ICONS = { Activity, Stethoscope, TestTubes, FileText };
 
 function AtendentePainel({ categoria, guiche, onSair }) {
   const setorInfo = SETORES.find(s => s.cat === categoria);

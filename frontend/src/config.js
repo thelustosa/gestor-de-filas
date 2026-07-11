@@ -12,8 +12,8 @@ export const CLIENT_ID = (() => {
 })();
 
 export const SETORES = [
-  { cat: 'O', label: 'Ouvidoria', iconName: 'Ear', cor: '#3b82f6', corBg: 'rgba(59,130,246,0.12)' },
-  { cat: 'F', label: 'Finanças', iconName: 'Landmark', cor: '#10b981', corBg: 'rgba(16,185,129,0.12)' },
-  { cat: 'C', label: 'Cadastro de Veículos e Empresas', iconName: 'CarFront', cor: '#f59e0b', corBg: 'rgba(245,158,11,0.12)' },
-  { cat: 'P', label: 'Protocolar Documentos', iconName: 'FileText', cor: '#8b5cf6', corBg: 'rgba(139,92,246,0.12)' },
+  { cat: 'T', label: 'Triagem', iconName: 'Activity', cor: '#3b82f6', corBg: 'rgba(59,130,246,0.12)' },
+  { cat: 'C', label: 'Clínico Geral', iconName: 'Stethoscope', cor: '#10b981', corBg: 'rgba(16,185,129,0.12)' },
+  { cat: 'E', label: 'Exames Laboratoriais', iconName: 'TestTubes', cor: '#f59e0b', corBg: 'rgba(245,158,11,0.12)' },
+  { cat: 'R', label: 'Retirada de Resultados', iconName: 'FileText', cor: '#8b5cf6', corBg: 'rgba(139,92,246,0.12)' },
 ];

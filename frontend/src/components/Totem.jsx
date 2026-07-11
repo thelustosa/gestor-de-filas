@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Ear, Landmark, CarFront, FileText } from 'lucide-react';
+import { Activity, Stethoscope, TestTubes, FileText } from 'lucide-react';
 import TicketPrint from './TicketPrint';
 import { API_URL, SETORES } from '../config';
 
-const ICONS = { Ear, Landmark, CarFront, FileText };
+const ICONS = { Activity, Stethoscope, TestTubes, FileText };
 
 function Totem() {
   const [senha, setSenha] = useState(null);
@@ -75,7 +75,7 @@ function Totem() {
           <div style={{ display: 'flex', gap: '2rem' }}>
             <button 
               className="btn-totem btn-preferencial-totem" 
-              style={{ flex: 1, borderColor: '#D4A017', background: 'rgba(212, 160, 23, 0.1)' }} 
+              style={{ flex: 1, borderColor: 'var(--preferencial)', background: 'rgba(45, 164, 74, 0.1)' }} 
               onClick={() => retirarSenha('P')}
               disabled={loading}
             >
@@ -112,9 +112,9 @@ function Totem() {
             ) : (
               <>
                 <h2 style={{ color: '#64748b', fontSize: '1.8rem', textTransform: 'uppercase' }}>
-                  {senha.catNome} — <span style={{ color: senha.tipoNome === 'Preferencial' ? '#D4A017' : 'inherit' }}>{senha.tipoNome}</span>
+                  {senha.catNome} — <span style={{ color: senha.tipoNome === 'Preferencial' ? 'var(--preferencial)' : 'inherit' }}>{senha.tipoNome}</span>
                 </h2>
-                <div className="modal-senha" style={{ color: senha.tipoNome === 'Preferencial' ? '#D4A017' : 'var(--primary)' }}>{senha.id}</div>
+                <div className="modal-senha" style={{ color: senha.tipoNome === 'Preferencial' ? 'var(--preferencial)' : 'var(--primary)' }}>{senha.id}</div>
                 <p style={{ fontSize: '1.5rem', color: '#64748b' }}>
                   Por favor, aguarde ser chamado no painel.
                 </p>

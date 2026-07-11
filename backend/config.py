@@ -2,10 +2,10 @@ from datetime import timedelta
 import os
 
 CATEGORIAS = {
-    'O': 'Ouvidoria',
-    'F': 'Finanças',
-    'C': 'Cadastro de Veículos e Empresas',
-    'P': 'Protocolar Documentos',
+    'T': 'Triagem',
+    'C': 'Clínico Geral',
+    'E': 'Exames Laboratoriais',
+    'R': 'Retirada de Resultados',
 }
 
 # Caminho para o diretório backend

@@ -232,15 +232,17 @@ body, html, #root {
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background: var(--bg-dark);
+    background: linear-gradient(135deg, #f1f5f9 0%, #cbd5e1 100%);
     padding: 2rem;
-    color: white;
+    color: #0f172a;
 }
 
 .totem-title {
     font-size: 3rem;
     margin-bottom: 3rem;
     font-weight: 900;
+    color: #1e293b;
+    text-shadow: 0 2px 4px rgba(255,255,255,0.5);
     animation: fadeIn 0.4s ease;
 }
 
@@ -253,9 +255,9 @@ body, html, #root {
 }
 
 .btn-totem {
-    background: var(--footer-bg);
-    border: 2px solid rgba(255,255,255,0.1);
-    color: white;
+    background: #ffffff;
+    border: 2px solid transparent;
+    color: #1e293b;
     padding: 4rem 2rem;
     border-radius: 1.5rem;
     font-size: 2rem;
@@ -266,14 +268,14 @@ body, html, #root {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
     transform: translateY(0);
 }
 
 .btn-totem:hover:not(:disabled) {
-    transform: translateY(-8px);
-    background: rgba(255,255,255,0.08);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.6), 0 0 20px rgba(255,255,255,0.05);
+    transform: translateY(-6px);
+    background: #ffffff;
+    box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1), 0 10px 10px -5px rgba(0,0,0,0.04);
 }
 
 .btn-totem:active {
@@ -281,19 +283,19 @@ body, html, #root {
 }
 
 /* Cores por Categoria Totem (usando var(--footer-bg) como base escurecida) */
-.btn-ear:hover { border-color: #3b82f6; box-shadow: 0 0 25px rgba(59, 130, 246, 0.4); background: rgba(59, 130, 246, 0.1); }
-.btn-landmark:hover { border-color: #10b981; box-shadow: 0 0 25px rgba(16, 185, 129, 0.4); background: rgba(16, 185, 129, 0.1); }
-.btn-carfront:hover { border-color: #f59e0b; box-shadow: 0 0 25px rgba(245, 158, 11, 0.4); background: rgba(245, 158, 11, 0.1); }
-.btn-filetext:hover { border-color: #8b5cf6; box-shadow: 0 0 25px rgba(139, 92, 246, 0.4); background: rgba(139, 92, 246, 0.1); }
+.btn-activity:hover { border-color: #3b82f6; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.15); background: rgba(59, 130, 246, 0.05); }
+.btn-stethoscope:hover { border-color: #10b981; box-shadow: 0 10px 25px rgba(16, 185, 129, 0.15); background: rgba(16, 185, 129, 0.05); }
+.btn-testtubes:hover { border-color: #f59e0b; box-shadow: 0 10px 25px rgba(245, 158, 11, 0.15); background: rgba(245, 158, 11, 0.05); }
+.btn-filetext:hover { border-color: #8b5cf6; box-shadow: 0 10px 25px rgba(139, 92, 246, 0.15); background: rgba(139, 92, 246, 0.05); }
 
-.btn-normal-totem:hover { border-color: #94a3b8; box-shadow: 0 0 25px rgba(148, 163, 184, 0.4); background: rgba(148, 163, 184, 0.1); }
-.btn-preferencial-totem:hover { border-color: var(--accent); box-shadow: 0 0 25px rgba(212, 160, 23, 0.4); background: rgba(212, 160, 23, 0.1); }
+.btn-normal-totem:hover { border-color: #94a3b8; box-shadow: 0 10px 25px rgba(148, 163, 184, 0.15); background: rgba(148, 163, 184, 0.05); }
+.btn-preferencial-totem:hover { border-color: var(--preferencial); box-shadow: 0 10px 25px rgba(45, 164, 74, 0.15); background: rgba(45, 164, 74, 0.05); }
 
 .btn-voltar-totem {
     padding: 1.2rem;
-    background: transparent;
-    border: 1px solid rgba(148, 163, 184, 0.3);
-    color: #94a3b8;
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    color: #475569;
     border-radius: 1rem;
     font-size: 1.3rem;
     font-weight: 600;
@@ -301,13 +303,14 @@ body, html, #root {
     margin-top: 1.5rem;
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     width: 100%;
+    box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05);
 }
 
 .btn-voltar-totem:hover {
-    border-color: rgba(255,255,255,0.6);
-    color: white;
-    background: rgba(255,255,255,0.05);
-    box-shadow: 0 0 20px rgba(255,255,255,0.05);
+    border-color: #94a3b8;
+    color: #0f172a;
+    background: #f8fafc;
+    box-shadow: 0 10px 15px -3px rgba(0,0,0,0.1);
     transform: scale(1.01);
 }
 
@@ -331,7 +334,7 @@ body, html, #root {
 .modal-overlay {
     position: fixed;
     top: 0; left: 0; width: 100%; height: 100%;
-    background: rgba(0,0,0,0.9);
+    background: rgba(15,23,42,0.6);
     display: flex;
     align-items: center;
     justify-content: center;

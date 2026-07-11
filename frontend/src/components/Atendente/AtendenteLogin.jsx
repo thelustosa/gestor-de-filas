@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import { Ear, Landmark, CarFront, FileText, ChevronRight } from 'lucide-react';
+import { Activity, Stethoscope, TestTubes, FileText, ChevronRight } from 'lucide-react';
 import { API_URL, CLIENT_ID, SETORES } from '../../config';
 
-const ICONS = { Ear, Landmark, CarFront, FileText };
+const ICONS = { Activity, Stethoscope, TestTubes, FileText };
 
 function AtendenteLogin({ onEntrar }) {
   const [setorSelecionado, setSetorSelecionado] = useState(null);
