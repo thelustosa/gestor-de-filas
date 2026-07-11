@@ -117,7 +117,7 @@ Interface utilizada para a triagem e retirada de senhas (pelo próprio cidadão 
 
 | 1. Seleção do Setor | 2. Tipo de Atendimento (Normal/Pref) | 3. Visualização e Impressão do Ticket |
 | :---: | :---: | :---: |
-| ![Totem - Seleção do Setor](docs/images/3_totem_setores.png) | ![Totem - Tipo de Atendimento](docs/images/4_totem_tipo.png) | ![Impressão do Ticket](docs/images/5_impressao_senha.png) |
+| <img src="docs/images/3_totem_setores.png" alt="Totem - Seleção do Setor" height="200" /> | <img src="docs/images/4_totem_tipo.png" alt="Totem - Tipo de Atendimento" height="200" /> | <img src="docs/images/5_impressao_senha.png" alt="Impressão do Ticket" height="200" /> |
 
 ---
 
@@ -126,7 +126,7 @@ Interface onde os atendentes realizam login vinculando ao guichê e gerenciam as
 
 | 1. Seleção do Setor e Guichê | 2. Controle de Fila e Chamadas (Chamar/Rechamar) |
 | :---: | :---: |
-| ![Atendente - Login](docs/images/1_atendente_setor.png) | ![Atendente - Painel](docs/images/2_atendente_painel.png) |
+| <img src="docs/images/1_atendente_setor.png" alt="Atendente - Login" height="200" /> | <img src="docs/images/2_atendente_painel.png" alt="Atendente - Painel" height="200" /> |
 
 ---
 
