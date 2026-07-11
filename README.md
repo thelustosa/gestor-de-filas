@@ -117,7 +117,7 @@ Interface utilizada para a triagem e retirada de senhas (pelo próprio cidadão 
 
 | 1. Seleção do Setor | 2. Tipo de Atendimento (Normal/Pref) | 3. Visualização e Impressão do Ticket |
 | :---: | :---: | :---: |
-| ![Totem - Seleção do Setor](docs/images/print3_totem_setores.png) | ![Totem - Tipo de Atendimento](docs/images/print4_totem_tipo.png) | ![Impressão do Ticket](docs/images/print5_impressao_senha.png) |
+| ![Totem - Seleção do Setor](docs/images/3_totem_setores.png) | ![Totem - Tipo de Atendimento](docs/images/4_totem_tipo.png) | ![Impressão do Ticket](docs/images/5_impressao_senha.png) |
 
 ---
 
@@ -126,7 +126,7 @@ Interface onde os atendentes realizam login vinculando ao guichê e gerenciam as
 
 | 1. Seleção do Setor e Guichê | 2. Controle de Fila e Chamadas (Chamar/Rechamar) |
 | :---: | :---: |
-| ![Atendente - Login](docs/images/print1_atendente_setor.png) | ![Atendente - Painel](docs/images/print2_atendente_painel.png) |
+| ![Atendente - Login](docs/images/1_atendente_setor.png) | ![Atendente - Painel](docs/images/2_atendente_painel.png) |
 
 ---
 
@@ -158,7 +158,7 @@ Interface onde os atendentes realizam login vinculando ao guichê e gerenciam as
 Os dados de atendimento são salvos permanentemente em `backend/data/atendimentos.db`. Você pode exportar o histórico completo para Excel através do botão **Exportar Planilha** no Painel Administrativo, além de monitorar guichês ativos em tempo real e extrair dados de produtividade para Ouvidoria, Finanças e outros setores.
 
 <p align="center">
-  <img src="docs/images/print6_admin.png" alt="Painel Administrativo - Relatórios e Monitoramento" width="800" />
+  <img src="docs/images/6_admin.png" alt="Painel Administrativo - Relatórios e Monitoramento" width="800" />
 </p>
 
 ---
